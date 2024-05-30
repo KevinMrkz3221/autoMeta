@@ -23,7 +23,7 @@ def run():
             price=mt5.symbol_info_tick(META.symbol).ask,
             sl=0,
             tp=0,
-            _type_time=0,
+            _type_time=mt5.ORDER_TIME_GTC,
             type_filling=mt5.ORDER_FILLING_IOC
         )
 
@@ -36,7 +36,7 @@ def run():
             price=mt5.symbol_info_tick(META.symbol).ask,
             sl=0,
             tp=0,
-            _type_time=0,
+            _type_time=mt5.ORDER_TIME_GTC,
             type_filling=mt5.ORDER_FILLING_IOC
         )
 
@@ -45,6 +45,7 @@ def run():
     # Verifica si el request no es nulo
     if req != None:
         request = META.send_order(req.to_dict(1))
+        print(request)
         ENTRY.add_record(str(req.to_line()))
 
         
