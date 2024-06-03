@@ -5,8 +5,8 @@ from scipy import stats
 
 def find_peaks_valleys(df):
     ## 100 works fine on EURUSD
-    peaks, _ = find_peaks(df['close'], distance=300)
-    valleys, _ = find_peaks(-df['close'], distance=300)
+    peaks, _ = find_peaks(df['close'], distance=100)
+    valleys, _ = find_peaks(-df['close'], distance=100)
 
     return peaks, valleys
 
