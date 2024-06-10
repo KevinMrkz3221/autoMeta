@@ -70,16 +70,23 @@ META = MetaController(USER, PASSWORD, SERVER, TIMEFRAME, args.symbol, args.bars,
 
 
 # Crea directorio y files
-ROOT = os.getcwd()
-output = os.path.join(ROOT, 'output')
-FILE_HISTORY = output + f'C:\\meta\\{args.symbol}.csv'
-LOG_FILE = output + f'C:\\meta_logs\\logs_{args.symbol}.csv'
-
 try:
-    os.mkdir(output)
-except:
-    pass
+    os.mkdir('C:\\meta')
+    os.mkdir('C:\\meta\\symbols\\')
+    os.mkdir('C:\\meta\\logs\\')
+except Exception as E:
+    print(E)
+
+FILE_HISTORY = f'C:\\meta\\symbols\\{args.symbol}.csv'
+LOG_FILE = f'C:\\meta\\logs\\logs_{args.symbol}.csv'
+
+
 
 
 # Historial de entradas
 ENTRY = Entry(FILE_HISTORY)
+
+# 
+print(f'''
+        Symbol: {args.symbol} Test
+''')
