@@ -25,7 +25,7 @@ class MetaController:
         df = pd.DataFrame(bars)
         df['time'] = pd.to_datetime(df['time'], unit='s')
         df['candle_number'] = list(range(1, len(df) + 1))
-        return df
+        return df.iloc[:-1]
 
     def send_order(self, request):
         # Envia una solicitud
