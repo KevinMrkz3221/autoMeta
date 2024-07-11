@@ -40,13 +40,12 @@ def run():
             type_filling=mt5.ORDER_FILLING_IOC
         )
 
-
-    print(req, str(datetime.now()))
+    print(req, str(data.tail(1).to_dict('records')[0]['time']))
     # Verifica si el request no es nulo
     if req != None:
-        request = META.send_order(req.to_dict(1))
+        request = META.send_order(req.to_dict())
         print(request)
-        ENTRY.add_record(str(req.to_line()))
+        ENTRY.add_record(data.tail(1).to_dict('records'))
 
         
         

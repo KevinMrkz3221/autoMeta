@@ -19,32 +19,17 @@ class Request:
     def to_line(self):
         return f"{self.action},{self.symbol},{self.volume},{self._type},{self.price},{self.sl},{self.tp},{self._type_time},{self.type_filling},{self.deviation},{self.magic}, {self.comment}"
 
-    def to_dict(self, sl):
-        if sl:
-            return {
-                "action": self.action,
-                "symbol": self.symbol,
-                'volume': self.volume,
-                "type": self._type,
-                'price': self.price,
-                'sl': self.sl,
-                'tp': self.tp,
-                'deviation': self.deviation,
-                'magic': self.magic,
-                'comment': self.comment,
-                'type_time': self._type_time,
-                'type_filling': self.type_filling
-            }
-        else:
-            return {
-                "action": self.action,
-                "symbol": self.symbol,
-                'volume': self.volume,
-                "type": self._type,
-                'price': self.price,
-                'deviation': self.deviation,
-                'magic': self.magic,
-                'comment': self.comment,
-                'type_time': self._type_time,
-                'type_filling': self.type_filling
-            }
+    def to_dict(self):
+
+        return {
+            "action": self.action,
+            "symbol": self.symbol,
+            'volume': self.volume,
+            "type": self._type,
+            'price': self.price,
+            'deviation': self.deviation,
+            'magic': self.magic,
+            'comment': self.comment,
+            'type_time': self._type_time,
+            'type_filling': self.type_filling
+        }
