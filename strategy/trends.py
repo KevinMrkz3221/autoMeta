@@ -14,6 +14,7 @@ def find_peaks_valleys(df):
 # Función para calcular la línea de tendencia en una ventana de datos
 def calculate_trend(data, start_idx, window_size):
     # Limitar el índice para evitar errores de índice negativo
+
     start = max(start_idx - window_size, 0)
     end = start_idx + 1
     # Regresión lineal para la ventana de datos
